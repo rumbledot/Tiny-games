@@ -1,0 +1,122 @@
+Welcome to my simple top down maze like game maker.
+
+>The program consist of 3 parts.
+>>MAIN MENU
+>>LEVEL EDITOR
+>>PIXEL EDITOR
+
+>The MAIN MENU is where we start.
+
+There are multiple buttons.
+
+>>The first button is the Block Editor, 
+this will take you to the block or pixel editor
+which functions will be discussed later
+
+>>Below that is the Level Editor button
+after you've create your own 'block' you can use it here
+to create your own level
+
+>>The next button is the Start Level button
+this will load a preset level file for you to play with
+there are 3 levels to play with a surprise level if you manage to finish the game
+
+>>with the Custom Level button you can load
+a level you've created and play with it
+use primarily as a debugging purpose
+
+>BLOCK EDITOR
+
+>>A basic pixel editor program that create a 30x30 pixel image
+using Mouse as the interface.
+You can create your own 'block' and save it
+as a .ppm file.
+The .ppm file you've created can be loaded 
+for further editing.
+
+>>This editor features :
+multiple level Zoom
+90d clockwise Rotate function
+
+>>Brush with changeable size
+>>Colour picker palette using java built in picker
+>>Eyedropper tool that can read colour from the image
+and then use it as brush colour
+
+>LEVEL EDITOR
+
+>>With this editor you can use the 'block' you've created
+to built your own level!
+
+>>Comes with a pre-loaded blocks you can use to built a basic level.
+A new level will be covered with a Walkable block of grass image.
+
+>>You can load up your own blocks you have made using the BLOCK EDITOR
+and use it to built level
+
+>>Loaded blocks are displayed under the level editor grid
+
+>>There are several types of block in the level
+each behave differently.
+
+>>To use the editor:
+
+>>>Choose one of the block you've loaded.
+You can click the icons under the grid.
+Selected item will have green high light around it
+
+>>>Press one of the block type buttons before you put it on the grid
+>>>> Put Barrier button
+Press this to put a block that the player can't walk thru.
+>>>> Put Player button
+This will put a player controllable block. Limit to only one in each level.
+>>>> Put Apple button
+The block will behave as a collectible and generate score when player walk thru it.
+>>>> Put Walkable button
+This block type will act as a background which player can walk on.
+>>>> Load Level
+Load level file you have saved before
+>>>> Save Level
+Save the level you've created to be use in the game or loaded again for future editing
+
+>THE GAME
+
+>> The game is a 2D dungeon explorer
+Player can move in compass direction.
+The goal is to reach Finish point tile.
+
+>> A random enemy will appear every now and then
+Which brings up a new screen.
+There are 3 preloaded Enemy objects with different score worth, image, health and attack power.
+The player character displayed on the top left hand corner
+and the enemy bottom right hand corner with gradient health bar under each image.
+
+In a while loop that check if either the player or the enemy still alive.
+
+The player will get the first move
+with three options to:
+Attack
+Defend
+Retreat
+Attack function will randomly generate a random number within player's attack power value
+Which will reduce enemy's health.
+Defend will reduce future damage receive by the player.
+Retreat, if successful will take the player out of the mini game.
+If player succeed killing the enemy a score will be given 
+according to the current enemy's worth.
+
+Enemy will move after the player
+Enemy will make two preset move randomly.
+Either Attacking the player or defend itself and sometimes it doesn't do anything.
+Every attack will reduce player health offset by player's defend value.
+Defend will reduce future damage done to enemy by the player.
+
+At the end of the loop, the screen cleared and status are updated.
+Health bar is displayed using percentage value with gradient color of black to orange.
+
+If the loop ends.
+Set a boolean value of isAlive to false if the player lose.
+If the enemy dies, add the score and set the isEnemy boolean to false.
+
+Player will return to level screen and continue their journey to the finish point.
+

@@ -1,0 +1,60 @@
+void rotatePiece() {
+		String temp;
+		if (ranPiece != 6 && ranPiece != 1) {
+			switch (rot) {
+			case 1:
+				activeW = activePiece.getWidth();
+				activeH = activePiece.getHeight();
+				activeP = activePiece.getPiece();
+				break;
+			case 2:
+				activeH = activePiece.getWidth();
+				activeW = activePiece.getHeight();
+				temp = 			Character.toString(activeP.charAt(4)) + 
+								Character.toString(activeP.charAt(1)) + 
+								Character.toString(activeP.charAt(5)) +
+								Character.toString(activeP.charAt(2)) + 
+								Character.toString(activeP.charAt(6)) + 
+								Character.toString(activeP.charAt(3));
+				activeP = temp;
+				break;
+			case 3:
+				activeW = activePiece.getWidth();
+				activeH = activePiece.getHeight();
+				temp = 			Character.toString(activeP.charAt(6)) + 
+								Character.toString(activeP.charAt(5)) + 
+								Character.toString(activeP.charAt(4)) +
+								Character.toString(activeP.charAt(3)) + 
+								Character.toString(activeP.charAt(2)) + 
+								Character.toString(activeP.charAt(1));
+		activeP = temp;
+				break;
+			case 4:
+				activeH = activePiece.getWidth();
+				activeW = activePiece.getHeight();
+				temp =		 	Character.toString(activeP.charAt(3)) + 
+								Character.toString(activeP.charAt(6)) + 
+								Character.toString(activeP.charAt(2)) +
+								Character.toString(activeP.charAt(5)) + 
+								Character.toString(activeP.charAt(1)) + 
+								Character.toString(activeP.charAt(4));
+				activeP = temp;
+				break;
+			}
+		} else if (ranPiece == 1) {
+			switch (rot) {	
+			case 1: case 3:
+				UI.setColor(activeC);
+				for (int col = 0; col < activeW; col++) {
+					UI.fillRect((posX + col) * 20, posY * 20, 20, 20);
+				}
+				break;
+			case 2: case 4:
+				UI.setColor(activeC);
+				for (int row = 0; row < activeW; row++) {
+					UI.fillRect(posX * 20, (posY + row) * 20, 20, 20);
+				}
+				break;
+			}
+		}
+	}
